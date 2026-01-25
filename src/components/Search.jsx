@@ -2,21 +2,18 @@ import { useState } from "react"
 
 
 
-const Search = ({ todos, setTodos }) => {
+const Search = ({ todos, setSearchedItems, searchValue, setSearchValue }) => {
 
-    const [searchValue, setSearchValue] = useState("")
-    const [searchedItems, setSearchedItems] = useState([])
+    
+    const getSearchedItems = (value) => {
 
-    const getSearchedItems = () => {
+        if (value.trim()) {
 
-        if (searchValue) {
+            setSearchedItems(todos.filter(todo => todo.name.toLowerCase().includes(value.trim().toLowerCase())))
 
-            setSearchedItems(todos.filter(todo => todo.name.toLowerCase().includes(searchValue.trim().toLowerCase())))
-
+        } else {
+            setSearchedItems([])
         }
-
-        console.log(searchValue)
-        console.log(searchedItems)
 
     }
 
@@ -25,11 +22,12 @@ const Search = ({ todos, setTodos }) => {
     return (
         <div className="search-container">
             <div className="search-input">
-                <i
-                    onClick={getSearchedItems}
-                    className="fa-solid fa-magnifying-glass search-icon"></i>
+                <i className="fa-solid fa-magnifying-glass search-icon"></i>
                 <input
-                    onChange={(e) => setSearchValue(e.target.value)}
+                    onChange={(e) => {
+                        setSearchValue(e.target.value)
+                        getSearchedItems(e.target.value)
+                    }}
                     value={searchValue}
                     type="text" className="search" spellCheck="false" placeholder="search..." />
             </div>

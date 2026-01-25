@@ -3,9 +3,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useState } from 'react';
 
 
-const Filter = () => {
+const Filter = ({filter, setFilter}) => {
 
-    const [filter, setFilter] = useState("All");
     const [isOpen, setIsOpen] = useState(false);
 
     const options = ["All", "Completed", "Active"];
@@ -13,13 +12,12 @@ const Filter = () => {
 
     return (
         <div className="custom-select">
-            {/* Seçili olan filtre - Buna tıklayınca menü açılır/kapanır */}
+        
             <button className="select-selected" onClick={() => setIsOpen(!isOpen)}>
                 {filter}
                 <span className={`arrow ${isOpen ? "up" : "down"}`}></span>
             </button>
 
-            {/* Eğer isOpen true ise seçenekleri göster */}
             {isOpen && (
                 <div className="select-items">
                     {options.map((opt) => (
@@ -28,7 +26,7 @@ const Filter = () => {
                             className="option"
                             onClick={() => {
                                 setFilter(opt);
-                                setIsOpen(false); // Seçince kapat
+                                setIsOpen(false); 
                             }}
                         >
                             {opt}

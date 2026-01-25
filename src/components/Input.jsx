@@ -11,7 +11,7 @@ const Input = ({todos, setTodos}) => {
 
         e.preventDefault()
 
-        if (inputValue) {
+        if (inputValue.trim()) {
             const todo = {
                 id: new Date().getTime(),
                 name: inputValue,

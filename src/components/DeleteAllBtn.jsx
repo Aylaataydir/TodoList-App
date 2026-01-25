@@ -1,10 +1,12 @@
 
 
 
-const DeleteAllBtn = () => {
+const DeleteAllBtn = ({setTodos}) => {
   return (
     <div>
-        <button className="delete-all">DELETE ALL</button>
+        <button
+        onClick={() => setTodos([])}
+         className="delete-all">DELETE ALL</button>
     </div>
   )
 }
