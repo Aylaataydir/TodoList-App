@@ -1,12 +1,13 @@
 import { faAngleDown } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { MdKeyboardArrowDown } from "react-icons/md";
+import { MdKeyboardArrowUp } from "react-icons/md";
 import { useState } from 'react';
 
 
 const Filter = ({filter, setFilter}) => {
 
     const [isOpen, setIsOpen] = useState(false);
-
     const options = ["All", "Completed", "Active"];
 
 
@@ -15,7 +16,7 @@ const Filter = ({filter, setFilter}) => {
         
             <button className="select-selected" onClick={() => setIsOpen(!isOpen)}>
                 {filter}
-                <span className={`arrow ${isOpen ? "up" : "down"}`}></span>
+                <span className='arrow'>{isOpen ? <MdKeyboardArrowUp /> : <MdKeyboardArrowDown />}</span>
             </button>
 
             {isOpen && (
