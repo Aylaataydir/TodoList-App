@@ -90,8 +90,16 @@ button {
     font-weight: 600;
     font-size: 13px;
     cursor: pointer;
+    transition: all 0.2s ease-out;
 }
 
+button:hover {
+    scale: 1.06;
+}
+
+i:hover {
+    scale: 1.09;
+}
 
 
 /* UL COMPONENT  */
@@ -229,9 +237,9 @@ button {
     grid-template-columns: 1fr 1fr;
     align-items: center;
     gap: 5px;
-    margin-block:10px 20px;
+    margin-block: 10px 20px;
     width: 100%;
-    
+
 }
 
 .delete-all {
@@ -240,7 +248,7 @@ button {
     font-size: 10px;
     padding-block: 8px;
     width: 100%;
-   
+
 
 }
 
@@ -249,7 +257,7 @@ button {
     position: relative;
     /* margin: 10px ; */
     font-family: 'Arial', sans-serif;
- 
+
 
 
 }
@@ -320,7 +328,7 @@ button {
 @media (max-width: 56.25rem) {
 
     .home-container {
-        width: 95vw;
+        width: 90vw;
     }
 
 }
@@ -329,7 +337,7 @@ button {
 
     .home-container {
 
-        width: 95vw;
+        width: 90vw;
         gap: 1rem;
         grid-template-columns: 1fr;
         grid-template-areas:
